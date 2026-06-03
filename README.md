@@ -1,34 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Roots of Grace
 
-## Getting Started
+Marketing site for _Roots of Grace_, built with Next.js 16 (App Router).
 
-First, run the development server:
+## Requirements
+
+- Node.js 20.9+
+- npm 10+
+
+## Local development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+App runs at http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-## Learn More
+- `npm run dev`: Start development server.
+- `npm run lint`: Run ESLint.
+- `npm run build`: Create production build.
+- `npm run start`: Serve production build.
 
-To learn more about Next.js, take a look at the following resources:
+## Production readiness checklist
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Run `npm run lint` with zero errors.
+- Run `npm run build` successfully.
+- Verify external image allowlist in [next.config.ts](next.config.ts).
+- Confirm metadata, `robots.txt`, and `sitemap.xml` output.
+- Validate key pages in desktop/mobile viewports.
+- Check reduced-motion behavior (`prefers-reduced-motion`).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## App structure
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [app/layout.tsx](app/layout.tsx): Global layout and metadata.
+- [app/page.tsx](app/page.tsx): Main landing page.
+- [app/falling-leaves.tsx](app/falling-leaves.tsx): Decorative hero animation.
+- [app/scroll-path.tsx](app/scroll-path.tsx): Narrative path animation.
+- [app/global-error.tsx](app/global-error.tsx): Global runtime error UI.
+- [app/not-found.tsx](app/not-found.tsx): 404 page.
+- [app/robots.ts](app/robots.ts): Robots metadata route.
+- [app/sitemap.ts](app/sitemap.ts): Sitemap metadata route.

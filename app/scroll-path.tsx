@@ -9,8 +9,16 @@ export default function ScrollPath() {
   useEffect(() => {
     const path = pathRef.current;
     const section = document.getElementById("story");
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
 
-    if (!path || !section) {
+    if (!path || !section || prefersReducedMotion) {
+      if (path) {
+        path.style.strokeDasharray = "none";
+        path.style.strokeDashoffset = "0";
+        path.style.opacity = "0.2";
+      }
       return;
     }
 

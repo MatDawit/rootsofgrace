@@ -12,15 +12,20 @@ export default function FallingLeaves() {
     const container = containerRef.current;
     if (!container) return;
 
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      container.replaceChildren();
+      return;
+    }
+
     const timers = new Set<number>();
 
     const createLeaf = () => {
       const leaf = document.createElement("span");
       leaf.className = `${styles.leaf} ${styles.dynamicLeaf}`;
 
-      const size = Math.random() * 9 + 13; // 13–22 px
+      const size = Math.random() * 9 + 13; // 13-22 px
       const startX = Math.random() * 100;
-      const duration = Math.random() * 4 + 5; // 5–9 s
+      const duration = Math.random() * 4 + 5; // 5-9 s
       const delay = Math.random() * 0.6;
       const anim = ANIMATIONS[Math.random() < 0.5 ? 0 : 1];
 
@@ -28,7 +33,7 @@ export default function FallingLeaves() {
       leaf.style.height = `${size * 0.7}px`;
       leaf.style.left = `${startX}%`;
       leaf.style.top = "0px";
-      // Use the global keyframe name directly — no CSS-module scoping issue
+      // Use global keyframe names directly to avoid CSS module scoping issues.
       leaf.style.animation = `${anim} ${duration}s ease-in ${delay}s forwards`;
 
       container.appendChild(leaf);
@@ -43,14 +48,14 @@ export default function FallingLeaves() {
       timers.add(removeId);
     };
 
-    // Staggered initial burst — 20 leaves over 3 s so the hero isn't flooded
+    // Stagger initial leaves so the hero is not flooded on mount.
     for (let i = 0; i < 20; i++) {
       const id = window.setTimeout(createLeaf, Math.random() * 3000);
       timers.add(id);
     }
 
-    // Gentle ongoing trickle
-    const intervalId = window.setInterval(createLeaf, 350);
+    // Keep a gentle ongoing trickle after the initial burst.
+    const intervalId = window.setInterval(createLeaf, 450);
 
     return () => {
       window.clearInterval(intervalId);

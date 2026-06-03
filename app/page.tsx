@@ -1,6 +1,7 @@
 import Image from "next/image";
 import FallingLeaves from "./falling-leaves";
 import ScrollPath from "./scroll-path";
+import SectionNav from "./section-nav";
 import styles from "./page.module.css";
 
 const chapters = [
@@ -28,7 +29,7 @@ const chapters = [
 
 export default function Home() {
   return (
-    <div className={styles.pageShell}>
+    <div id="page-top" className={styles.pageShell}>
       <svg
         className={styles.textureOverlay}
         aria-hidden="true"
@@ -55,36 +56,10 @@ export default function Home() {
         />
       </svg>
 
-      <header className={styles.navbar}>
-        <div className={styles.navInner}>
-          <a className={styles.brand} href="#top">
-            Roots of Grace
-          </a>
-          <nav className={styles.navLinks} aria-label="Primary">
-            <a className={styles.navLinkActive} href="#story">
-              The Story
-            </a>
-            <a className={styles.navLink} href="#author">
-              Author
-            </a>
-            <a className={styles.navLink} href="#purchase">
-              Buy Now
-            </a>
-          </nav>
-          <button
-            className={styles.menuButton}
-            type="button"
-            aria-label="Open menu"
-          >
-            <span />
-            <span />
-            <span />
-          </button>
-        </div>
-      </header>
+      <SectionNav />
 
-      <main id="top">
-        <section className={styles.hero}>
+      <main className={styles.mainContent}>
+        <section id="top" className={styles.hero}>
           <div className={styles.heroImageWrap} aria-hidden="true">
             <Image
               className={styles.heroImage}
@@ -249,13 +224,7 @@ export default function Home() {
                   className={styles.primaryCta}
                   href="mailto:publisher@rootsofgrace.com"
                 >
-                  Buy Hardcover
-                </a>
-                <a
-                  className={styles.secondaryCta}
-                  href="mailto:publisher@rootsofgrace.com"
-                >
-                  Buy eBook
+                  Buy Now
                 </a>
               </div>
             </div>
@@ -268,12 +237,11 @@ export default function Home() {
           <div>
             <p className={styles.footerBrand}>Roots of Grace</p>
             <p className={styles.footerText}>
-              © 2024 Dawit Gebremichael Habte. All rights reserved.
+              © 2026 Dawit Gebremichael Habte. All rights reserved.
             </p>
           </div>
           <nav className={styles.footerLinks} aria-label="Footer">
-            <a href="#top">Privacy Policy</a>
-            <a href="#top">Terms of Service</a>
+            <a href="#top">Back to Top</a>
             <a href="mailto:publisher@rootsofgrace.com">Contact</a>
           </nav>
         </div>

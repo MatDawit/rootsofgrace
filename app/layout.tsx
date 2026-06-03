@@ -21,6 +21,21 @@ export const metadata: Metadata = {
   title: "Roots of Grace - A Memoir by Dawit Gebremichael Habte",
   description:
     "A memoir by Dawit Gebremichael Habte about family, community, and the untold story of Eritrea.",
+  metadataBase: new URL("https://www.rootsofgrace.com"),
+  openGraph: {
+    title: "Roots of Grace - A Memoir by Dawit Gebremichael Habte",
+    description:
+      "A memoir by Dawit Gebremichael Habte about family, community, and the untold story of Eritrea.",
+    url: "https://www.rootsofgrace.com",
+    siteName: "Roots of Grace",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Roots of Grace - A Memoir by Dawit Gebremichael Habte",
+    description:
+      "A memoir by Dawit Gebremichael Habte about family, community, and the untold story of Eritrea.",
+  },
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
