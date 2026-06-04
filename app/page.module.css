@@ -567,8 +567,11 @@
 .testimonials {
   width: min(54rem, 100%);
   display: grid;
-  margin-top: 4rem;
   text-align: center;
+}
+
+.heroTestimonials .testimonialText {
+  color: rgba(255, 255, 255, 0.82);
 }
 
 .testimonialSlide {
@@ -601,7 +604,6 @@
   font-weight: 600;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--primary);
 }
 
 .primaryCta,
@@ -808,12 +810,12 @@
 
 @keyframes testimonialRotate {
   0%,
-  8% {
+  2% {
     opacity: 0;
     transform: translateY(10px);
   }
 
-  12%,
+  8%,
   28% {
     opacity: 1;
     transform: translateY(0);

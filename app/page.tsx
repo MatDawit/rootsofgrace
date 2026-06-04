@@ -163,12 +163,24 @@ export default function Home() {
             <p className={styles.heroSubtitle}>
               Family, Community and the Untold Story of Eritrea
             </p>
-            <p className={styles.heroCopy}>
-              From the heavy, monochromatic weight of history to the vibrant,
-              blooming clarity of the present. <em>Roots of Grace</em> is more
-              than a memoir; it is an exploration of resilience forged in the
-              crucible of conflict.
-            </p>
+            <div
+              className={`${styles.testimonials} ${styles.heroTestimonials}`}
+            >
+              {testimonials.map((testimonial, index) => (
+                <blockquote
+                  key={`hero-${testimonial.author}`}
+                  className={styles.testimonialSlide}
+                  style={{
+                    ["--slide-delay" as string]: `${index * 6}s`,
+                  }}
+                >
+                  <p className={styles.testimonialText}>{testimonial.quote}</p>
+                  <cite className={styles.testimonialAuthor}>
+                    {`- ${testimonial.author}`}
+                  </cite>
+                </blockquote>
+              ))}
+            </div>
             <a className={styles.primaryCta} href="#narrative">
               Begin the Journey
             </a>
@@ -297,25 +309,6 @@ export default function Home() {
                 >
                   Buy Now
                 </a>
-              </div>
-
-              <div className={styles.testimonials}>
-                {testimonials.map((testimonial, index) => (
-                  <blockquote
-                    key={testimonial.author}
-                    className={styles.testimonialSlide}
-                    style={{
-                      ["--slide-delay" as string]: `${index * 6}s`,
-                    }}
-                  >
-                    <p className={styles.testimonialText}>
-                      {testimonial.quote}
-                    </p>
-                    <cite className={styles.testimonialAuthor}>
-                      {`- ${testimonial.author}`}
-                    </cite>
-                  </blockquote>
-                ))}
               </div>
             </div>
           </section>
