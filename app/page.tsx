@@ -108,9 +108,6 @@ export default function Home() {
                   <p className={styles.eyebrow}>{chapter.eyebrow}</p>
                   <h2 className={styles.sectionTitle}>{chapter.title}</h2>
                   <p className={styles.bodyText}>{chapter.copy}</p>
-                  <a className={styles.secondaryCta} href="#purchase">
-                    Read Excerpt
-                  </a>
                 </div>
 
                 <div className={styles.chapterImageFrame}>
@@ -148,10 +145,6 @@ export default function Home() {
                 height={980}
               />
             </div>
-
-            <a className={styles.secondaryCta} href="#purchase">
-              Read Excerpt
-            </a>
           </section>
 
           <section className={styles.quoteSection}>
@@ -178,7 +171,7 @@ export default function Home() {
                 />
                 <Image
                   className={styles.authorPortrait}
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJRg39_3k1dJj32C8IhibIQ_loy31CyqSflZYyil8U2TV-J1svPyp8a6nt_4aWVAHwDFewaw9Arp_iv0W8ifI4mIlzr1U8u9GBrG-X7tK7zKk-CZlWMYPhmJ7IUC1JyQRpzrgQinifWGqSUFQn-X2x2jg8WwGh9xuTzvPOgOZzg0QyYPpoAxJdm8cmPPmp1yZ-5sQvSczTnzJ-6njGQDqQDF4J9azhrb_xWx8lO5cFec8nXeqbb2E3Q9lFU8zcm3fgVmkcq17PAp7X"
+                  src="/Dawit.jpeg"
                   alt="Portrait of Dawit Gebremichael Habte"
                   width={1200}
                   height={1200}
@@ -204,9 +197,6 @@ export default function Home() {
                   <em>Roots of Grace</em> is his definitive work on family,
                   memory, and survival.
                 </p>
-                <a className={styles.inlineLink} href="#purchase">
-                  Read Full Bio <span aria-hidden="true">→</span>
-                </a>
               </div>
             </div>
           </section>
@@ -222,7 +212,7 @@ export default function Home() {
               <div className={styles.purchaseActions}>
                 <a
                   className={styles.primaryCta}
-                  href="mailto:publisher@rootsofgrace.com"
+                  href="https://www.amazon.com/Roots-Grace-Family-Community-Eritrea/dp/195758842X"
                 >
                   Buy Now
                 </a>
@@ -242,7 +232,9 @@ export default function Home() {
           </div>
           <nav className={styles.footerLinks} aria-label="Footer">
             <a href="#top">Back to Top</a>
-            <a href="mailto:publisher@rootsofgrace.com">Contact</a>
+            <a href="https://www.amazon.com/Roots-Grace-Family-Community-Eritrea/dp/195758842X">
+              Contact
+            </a>
           </nav>
         </div>
       </footer>
