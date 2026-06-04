@@ -260,7 +260,7 @@
 }
 
 .fallbackLeaf {
-  top: -36px;
+  top: var(--fallback-start-y, -36px);
   animation-name: fallbackLeafFall;
   animation-duration: var(--fallback-duration, 10s);
   animation-delay: var(--fallback-delay, 0s);
@@ -735,7 +735,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .leaf,
+  .dynamicLeaf,
   .authorPortrait,
   .primaryCta,
   .secondaryCta,

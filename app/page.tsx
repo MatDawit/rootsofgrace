@@ -28,16 +28,46 @@ const chapters = [
 ];
 
 const fallbackLeaves = [
-  { left: "6%", size: "14px", duration: "9.6s", delay: "-0.6s" },
-  { left: "14%", size: "18px", duration: "11.2s", delay: "-2.1s" },
-  { left: "23%", size: "13px", duration: "8.8s", delay: "-3.4s" },
-  { left: "33%", size: "16px", duration: "10.4s", delay: "-1.2s" },
-  { left: "41%", size: "12px", duration: "9.1s", delay: "-4.2s" },
-  { left: "51%", size: "17px", duration: "11.7s", delay: "-2.9s" },
-  { left: "62%", size: "15px", duration: "9.9s", delay: "-5.1s" },
-  { left: "72%", size: "19px", duration: "12.1s", delay: "-0.9s" },
-  { left: "80%", size: "14px", duration: "9.4s", delay: "-3.8s" },
-  { left: "89%", size: "16px", duration: "10.7s", delay: "-1.7s" },
+  { left: "6%", top: "-18px", size: "14px", duration: "9.6s", delay: "-0.6s" },
+  {
+    left: "14%",
+    top: "-82px",
+    size: "18px",
+    duration: "11.2s",
+    delay: "-2.1s",
+  },
+  { left: "23%", top: "-34px", size: "13px", duration: "8.8s", delay: "-3.4s" },
+  {
+    left: "33%",
+    top: "-118px",
+    size: "16px",
+    duration: "10.4s",
+    delay: "-1.2s",
+  },
+  { left: "41%", top: "-56px", size: "12px", duration: "9.1s", delay: "-4.2s" },
+  {
+    left: "51%",
+    top: "-96px",
+    size: "17px",
+    duration: "11.7s",
+    delay: "-2.9s",
+  },
+  { left: "62%", top: "-26px", size: "15px", duration: "9.9s", delay: "-5.1s" },
+  {
+    left: "72%",
+    top: "-138px",
+    size: "19px",
+    duration: "12.1s",
+    delay: "-0.9s",
+  },
+  { left: "80%", top: "-48px", size: "14px", duration: "9.4s", delay: "-3.8s" },
+  {
+    left: "89%",
+    top: "-108px",
+    size: "16px",
+    duration: "10.7s",
+    delay: "-1.7s",
+  },
 ];
 
 export default function Home() {
@@ -95,6 +125,7 @@ export default function Home() {
                   left: leaf.left,
                   width: leaf.size,
                   height: `calc(${leaf.size} * 0.72)`,
+                  ["--fallback-start-y" as string]: leaf.top,
                   ["--fallback-duration" as string]: leaf.duration,
                   ["--fallback-delay" as string]: leaf.delay,
                 }}

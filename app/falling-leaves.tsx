@@ -24,6 +24,7 @@ export default function FallingLeaves() {
 
       const size = Math.random() * 9 + 13; // 13-22 px
       const startX = Math.random() * 100;
+      const startY = -(Math.random() * 140 + 10); // -10px to -150px
       const duration = prefersReducedMotion
         ? Math.random() * 2 + 8
         : Math.random() * 4 + 5; // reduced: 8-10 s, default: 5-9 s
@@ -33,7 +34,7 @@ export default function FallingLeaves() {
       leaf.style.width = `${size}px`;
       leaf.style.height = `${size * 0.7}px`;
       leaf.style.left = `${startX}%`;
-      leaf.style.top = "0px";
+      leaf.style.top = `${startY}px`;
       // Use global keyframe names directly to avoid CSS module scoping issues.
       leaf.style.animation = `${anim} ${duration}s ease-in ${delay}s forwards`;
 
@@ -50,8 +51,8 @@ export default function FallingLeaves() {
     };
 
     // Front-load enough leaves so motion is obvious immediately.
-    const initialLeafCount = prefersReducedMotion ? 8 : 24;
-    const initialSpreadMs = prefersReducedMotion ? 3000 : 2200;
+    const initialLeafCount = prefersReducedMotion ? 12 : 36;
+    const initialSpreadMs = prefersReducedMotion ? 1100 : 800;
 
     for (let i = 0; i < initialLeafCount; i++) {
       const id = window.setTimeout(createLeaf, Math.random() * initialSpreadMs);
@@ -59,7 +60,7 @@ export default function FallingLeaves() {
     }
 
     // Keep a steady ongoing trickle after the initial burst.
-    const intervalMs = prefersReducedMotion ? 850 : 350;
+    const intervalMs = prefersReducedMotion ? 650 : 260;
     const intervalId = window.setInterval(createLeaf, intervalMs);
 
     return () => {
