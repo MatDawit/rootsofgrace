@@ -234,11 +234,10 @@ export default function Home() {
               “
             </p>
             <blockquote className={styles.quoteText}>
-              We carry the scars of our fathers, not to bleed anew, but to map
-              the topography of our grace.
+              In defiance, Eritrea was born; in defiance, it will live forever.
             </blockquote>
             <cite className={styles.quoteCitation}>
-              — Dawit Gebremichael Habte
+              — Professor Tekie Fessehatzion
             </cite>
             <div className={styles.quoteRule} aria-hidden="true" />
           </section>
