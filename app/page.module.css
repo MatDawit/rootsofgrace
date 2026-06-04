@@ -563,6 +563,45 @@
   padding-top: 0.75rem;
 }
 
+.testimonials {
+  width: min(54rem, 100%);
+  display: grid;
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.testimonialSlide {
+  grid-area: 1 / 1;
+  margin: 0;
+  padding: 0.25rem 0;
+  display: grid;
+  gap: 0.85rem;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: testimonialRotate 18s infinite ease-in-out;
+  animation-delay: var(--slide-delay, 0s);
+}
+
+.testimonialText {
+  margin: 0;
+  font-style: italic;
+  font-family: var(--font-body), sans-serif;
+  font-size: 1rem;
+  line-height: 1.625;
+  color: #3f3a46;
+}
+
+.testimonialAuthor {
+  margin: 0;
+  font-family: var(--font-label), sans-serif;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
 .primaryCta,
 .secondaryCta {
   display: inline-flex;
@@ -714,6 +753,10 @@
     justify-content: center;
   }
 
+  .testimonials {
+    width: 100%;
+  }
+
   .primaryCta,
   .secondaryCta {
     width: 100%;
@@ -746,8 +789,39 @@
     transition: none;
   }
 
+  .testimonials {
+    gap: 0.9rem;
+    text-align: left;
+  }
+
+  .testimonialSlide {
+    grid-area: auto;
+    opacity: 1;
+    transform: none;
+  }
+
   .fallbackLeaf {
     animation-duration: 14s;
+  }
+}
+
+@keyframes testimonialRotate {
+  0%,
+  8% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  12%,
+  28% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  33%,
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
   }
 }
 

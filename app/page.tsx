@@ -27,6 +27,27 @@ const chapters = [
   },
 ];
 
+const testimonials = [
+  {
+    quote:
+      "Roots of Grace is a compelling and deeply human memoir about consequential choices, raw empathy, and the identities we inherit and acquire. Through Dawit and Mona's remarkable act of love, the narrative weaves together the personal, familial, communal, and national, making the story both cogent and deeply resonant.",
+    author:
+      "Zemhret Yohannes, Research and Documentation Center (RDC), Eritrea",
+  },
+  {
+    quote:
+      "Roots of Grace is heartwarming and deeply moving story of compassion, love, and humility, tracing the journey of a young couple whose family grows through adoption and birth. Their family story is beautifully interwoven with the broader history and enduring struggles of the Eritrean people. The result is a captivating tribute to family, cultural identity, perseverance, and the power of grace.",
+    author:
+      "Kiflai Gebremedhin. Ph.D., ASABE Fellow and International Professor Emeritus, Cornell University, Ithaca, New York",
+  },
+  {
+    quote:
+      "In Roots of Grace, the memoir and the history of Eritrea breathe together on every page, making each more vivid. This is a book full of love: love for family, for community, and for the texture of a life lived between two countries and two cultures. Fundamentally, it is a book of hope, a precious reminder of possibility.",
+    author:
+      "Mina Samuels, award-winning author, editor, and human rights advocate",
+  },
+];
+
 const fallbackLeaves = [
   { left: "6%", top: "-18px", size: "14px", duration: "9.6s", delay: "-0.6s" },
   {
@@ -246,16 +267,17 @@ export default function Home() {
                   </h2>
                 </div>
                 <p className={styles.bodyText}>
-                  Dawit Gebremichael Habte is a writer and historian dedicated
-                  to unearthing the narratives of resilience within the Eritrean
-                  diaspora.
-                </p>
-                <p className={styles.bodyText}>
-                  Through extensive archival research and deeply personal
-                  storytelling, he connects the visceral realities of the past
-                  with the blossoming hopes of the present.{" "}
-                  <em>Roots of Grace</em> is his definitive work on family,
-                  memory, and survival.
+                  After arriving in the United States as a young immigrant,
+                  Dawit studied Biophysics and Computer Science at Johns Hopkins
+                  University and built a career in large-scale technology
+                  infrastructure and DevOps leadership at Bloomberg while
+                  remaining deeply committed to his Eritrean heritage. Through
+                  mentorship initiatives, youth development programs, and
+                  community organizing, he has worked to bridge generations in
+                  the diaspora. <em>Roots of Grace</em> continues the journey
+                  begun in <em>Gratitude in Low Voices</em>, his first memoir,
+                  offering a powerful meditation on identity, belonging, and the
+                  enduring strength of family.
                 </p>
               </div>
             </div>
@@ -276,6 +298,25 @@ export default function Home() {
                 >
                   Buy Now
                 </a>
+              </div>
+
+              <div className={styles.testimonials}>
+                {testimonials.map((testimonial, index) => (
+                  <blockquote
+                    key={testimonial.author}
+                    className={styles.testimonialSlide}
+                    style={{
+                      ["--slide-delay" as string]: `${index * 6}s`,
+                    }}
+                  >
+                    <p className={styles.testimonialText}>
+                      {testimonial.quote}
+                    </p>
+                    <cite className={styles.testimonialAuthor}>
+                      {`- ${testimonial.author}`}
+                    </cite>
+                  </blockquote>
+                ))}
               </div>
             </div>
           </section>
