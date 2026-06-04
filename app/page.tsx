@@ -27,6 +27,19 @@ const chapters = [
   },
 ];
 
+const fallbackLeaves = [
+  { left: "6%", size: "14px", duration: "9.6s", delay: "-0.6s" },
+  { left: "14%", size: "18px", duration: "11.2s", delay: "-2.1s" },
+  { left: "23%", size: "13px", duration: "8.8s", delay: "-3.4s" },
+  { left: "33%", size: "16px", duration: "10.4s", delay: "-1.2s" },
+  { left: "41%", size: "12px", duration: "9.1s", delay: "-4.2s" },
+  { left: "51%", size: "17px", duration: "11.7s", delay: "-2.9s" },
+  { left: "62%", size: "15px", duration: "9.9s", delay: "-5.1s" },
+  { left: "72%", size: "19px", duration: "12.1s", delay: "-0.9s" },
+  { left: "80%", size: "14px", duration: "9.4s", delay: "-3.8s" },
+  { left: "89%", size: "16px", duration: "10.7s", delay: "-1.7s" },
+];
+
 export default function Home() {
   return (
     <div id="page-top" className={styles.pageShell}>
@@ -72,6 +85,22 @@ export default function Home() {
           </div>
 
           <div className={styles.heroOverlay} aria-hidden="true" />
+
+          <div className={styles.fallbackLeaves} aria-hidden="true">
+            {fallbackLeaves.map((leaf) => (
+              <span
+                key={`${leaf.left}-${leaf.delay}`}
+                className={`${styles.leaf} ${styles.fallbackLeaf}`}
+                style={{
+                  left: leaf.left,
+                  width: leaf.size,
+                  height: `calc(${leaf.size} * 0.72)`,
+                  ["--fallback-duration" as string]: leaf.duration,
+                  ["--fallback-delay" as string]: leaf.delay,
+                }}
+              />
+            ))}
+          </div>
 
           <FallingLeaves />
 

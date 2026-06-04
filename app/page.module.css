@@ -232,6 +232,14 @@
   z-index: 5;
 }
 
+.fallbackLeaves {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 4;
+}
+
 .leaf {
   position: absolute;
   top: 0;
@@ -249,6 +257,24 @@
 
 .dynamicLeaf {
   left: 0;
+}
+
+.fallbackLeaf {
+  top: -36px;
+  animation-name: fallbackLeafFall;
+  animation-duration: var(--fallback-duration, 10s);
+  animation-delay: var(--fallback-delay, 0s);
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  opacity: 0.72;
+}
+
+.fallbackLeaf:nth-child(2n) {
+  animation-name: fallbackLeafFallR;
+}
+
+.fallbackLeaf:nth-child(3n) {
+  opacity: 0.56;
 }
 
 .storyFlow {
@@ -718,5 +744,41 @@
   .inlineLink {
     animation: none;
     transition: none;
+  }
+
+  .fallbackLeaf {
+    animation-duration: 14s;
+  }
+}
+
+@keyframes fallbackLeafFall {
+  0% {
+    transform: translate3d(0, -40px, 0) rotate(0deg);
+    opacity: 0;
+  }
+
+  12% {
+    opacity: 0.72;
+  }
+
+  100% {
+    transform: translate3d(-56px, 110vh, 0) rotate(-420deg);
+    opacity: 0;
+  }
+}
+
+@keyframes fallbackLeafFallR {
+  0% {
+    transform: translate3d(0, -40px, 0) rotate(0deg);
+    opacity: 0;
+  }
+
+  12% {
+    opacity: 0.62;
+  }
+
+  100% {
+    transform: translate3d(46px, 110vh, 0) rotate(380deg);
+    opacity: 0;
   }
 }

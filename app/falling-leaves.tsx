@@ -12,10 +12,9 @@ export default function FallingLeaves() {
     const container = containerRef.current;
     if (!container) return;
 
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      container.replaceChildren();
-      return;
-    }
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
 
     const timers = new Set<number>();
 
@@ -25,7 +24,9 @@ export default function FallingLeaves() {
 
       const size = Math.random() * 9 + 13; // 13-22 px
       const startX = Math.random() * 100;
-      const duration = Math.random() * 4 + 5; // 5-9 s
+      const duration = prefersReducedMotion
+        ? Math.random() * 2 + 8
+        : Math.random() * 4 + 5; // reduced: 8-10 s, default: 5-9 s
       const delay = Math.random() * 0.6;
       const anim = ANIMATIONS[Math.random() < 0.5 ? 0 : 1];
 
@@ -48,14 +49,18 @@ export default function FallingLeaves() {
       timers.add(removeId);
     };
 
-    // Stagger initial leaves so the hero is not flooded on mount.
-    for (let i = 0; i < 20; i++) {
-      const id = window.setTimeout(createLeaf, Math.random() * 3000);
+    // Front-load enough leaves so motion is obvious immediately.
+    const initialLeafCount = prefersReducedMotion ? 8 : 24;
+    const initialSpreadMs = prefersReducedMotion ? 3000 : 2200;
+
+    for (let i = 0; i < initialLeafCount; i++) {
+      const id = window.setTimeout(createLeaf, Math.random() * initialSpreadMs);
       timers.add(id);
     }
 
-    // Keep a gentle ongoing trickle after the initial burst.
-    const intervalId = window.setInterval(createLeaf, 450);
+    // Keep a steady ongoing trickle after the initial burst.
+    const intervalMs = prefersReducedMotion ? 850 : 350;
+    const intervalId = window.setInterval(createLeaf, intervalMs);
 
     return () => {
       window.clearInterval(intervalId);
