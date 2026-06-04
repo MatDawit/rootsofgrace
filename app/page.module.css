@@ -533,14 +533,15 @@
 }
 
 .purchaseSection {
-  padding-bottom: clamp(5rem, 9vw, 7rem);
+  padding-top: clamp(2rem, 4vw, 3rem);
+  padding-bottom: clamp(1.5rem, 3vw, 2.5rem);
 }
 
 .purchaseCard {
   display: grid;
   justify-items: center;
-  gap: 1.4rem;
-  padding: clamp(2rem, 4vw, 3rem);
+  gap: 1rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
   text-align: center;
 }
 
@@ -566,15 +567,16 @@
 .testimonials {
   width: min(54rem, 100%);
   display: grid;
-  margin-top: 1.5rem;
+  margin-top: 0.25rem;
   text-align: center;
 }
 
 .testimonialSlide {
   grid-area: 1 / 1;
   margin: 0;
-  padding: 0.25rem 0;
+  padding: 0;
   display: grid;
+  align-content: start;
   gap: 0.85rem;
   opacity: 0;
   transform: translateY(10px);
@@ -790,14 +792,13 @@
   }
 
   .testimonials {
-    gap: 0.9rem;
-    text-align: left;
+    text-align: center;
   }
 
   .testimonialSlide {
-    grid-area: auto;
-    opacity: 1;
-    transform: none;
+    grid-area: 1 / 1;
+    animation: testimonialRotate 18s infinite ease-in-out;
+    animation-delay: var(--slide-delay, 0s);
   }
 
   .fallbackLeaf {
