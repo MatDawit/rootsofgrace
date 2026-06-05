@@ -265,7 +265,6 @@ export default function Home() {
             <div className={styles.authorGrid}>
               <div className={styles.authorPortraitFrame}>
                 <div
-                  className={styles.authorPortraitBorder}
                   aria-hidden="true"
                 />
                 <Image

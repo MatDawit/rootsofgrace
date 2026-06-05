@@ -500,13 +500,6 @@
   background: rgba(255, 255, 255, 0.35);
 }
 
-.authorPortraitBorder {
-  position: absolute;
-  inset: 1.1rem;
-  z-index: 1;
-  border: 1px solid rgba(255, 255, 255, 0.28);
-}
-
 .authorPortrait {
   height: 100%;
   object-fit: cover;
