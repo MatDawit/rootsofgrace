@@ -125,7 +125,7 @@ export default function Home() {
           <div className={styles.heroImageWrap} aria-hidden="true">
             <Image
               className={styles.heroImage}
-              src="/Tree.png"
+              src="/Tree.jpg"
               alt="Jacaranda tree framing the Roots of Grace landing page"
               fill
               priority
