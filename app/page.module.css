@@ -280,7 +280,7 @@
 .storyFlow {
   position: relative;
   overflow: hidden;
-  scroll-margin-top: var(--nav-height);
+  scroll-margin-top: calc(var(--nav-height) - 0.6rem);
 }
 
 .storyTexture {
@@ -345,6 +345,7 @@
 .chapterSection {
   display: grid;
   gap: 3rem;
+  scroll-margin-top: calc(var(--nav-height) - 0.6rem);
 }
 
 .chapterGrid,

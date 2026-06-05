@@ -15,6 +15,7 @@ type SectionId = (typeof NAV_ITEMS)[number]["id"];
 export default function SectionNav() {
   const [activeSection, setActiveSection] = useState<SectionId>("top");
   const navRef = useRef<HTMLElement | null>(null);
+  const manualNavUntilRef = useRef(0);
 
   useEffect(() => {
     const sections = NAV_ITEMS.map((item) => ({
@@ -28,6 +29,22 @@ export default function SectionNav() {
     if (sections.length === 0) return;
 
     const computeActiveSection = () => {
+      if (Date.now() < manualNavUntilRef.current) {
+        return;
+      }
+
+      const isNearPageBottom =
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 2;
+
+      if (isNearPageBottom) {
+        const lastSection = sections[sections.length - 1];
+        setActiveSection((current) =>
+          current === lastSection.id ? current : lastSection.id,
+        );
+        return;
+      }
+
       const navHeight = navRef.current?.offsetHeight ?? 0;
       const triggerY = window.scrollY + navHeight + 96;
 
@@ -82,6 +99,10 @@ export default function SectionNav() {
                 key={item.id}
                 className={isActive ? styles.navLinkActive : styles.navLink}
                 href={`#${item.hrefTarget}`}
+                onClick={() => {
+                  setActiveSection(item.id);
+                  manualNavUntilRef.current = Date.now() + 900;
+                }}
                 aria-current={isActive ? "location" : undefined}
               >
                 {item.label}
