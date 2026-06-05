@@ -6,6 +6,59 @@ import styles from "./page.module.css";
 
 const chapters = [
   {
+    eyebrow: "Memory Fragment",
+    title: "Skull",
+    variant: "witness",
+    copy: (
+      <>
+        According to <em>Archaeology</em>, a publication of the Archaeological
+        Institute of America, the discovery of a one-million-year-old skull in
+        the Afar region of Eritrea is a significant milestone in understanding
+        human evolution. The skull, which bears traits of both Homo erectus and
+        Homo sapiens, &quot;[pushes] back the development of modern human
+        morphology by some 300,000 years. Excavated between 1995 and 1997 by
+        Ernesto Abbate of the Universita di Firenze (Florence, Italy) and an
+        international team of paleoanthropologists, the nearly complete cranium
+        of an adult, along with two pelvic fragments and two incisors, was
+        recovered from ancient lake and river sediments deposited within the
+        primarily volcanic Northern Danakil Formation.&quot;
+      </>
+    ),
+    image: "/Skull.jpg",
+    alt: "Historical skull artifact",
+    width: 1080,
+    height: 1350,
+  },
+  {
+    eyebrow: "At the Center",
+    title: "Family",
+    copy: "Grace begins at home. Before it becomes history, before it becomes identity, before it becomes the story of a people, it originates in the places where a child is formed: in a mother’s sacrifice, a father’s wisdom, a grandmother’s blessing, a neighbor’s care, and a community’s watchful love. Before we understand the larger story of Eritrea, we first need to understand the people who raised us and the values they instilled in us. This is where that journey begins.",
+    image: "/Family.jpg",
+    alt: "Family portrait",
+    width: 1080,
+    height: 1350,
+  },
+  {
+    eyebrow: "The Price of History",
+    title: "Bearing Witness",
+    variant: "witness",
+    copy: "Amid the fierce Battle of Adwa, fought on March 1, 1896, there was a stark contrast in the treatment of the prisoners. While many Italian prisoners of war were humanely cared for by the Ethiopians and eventually sent back to Eritrea through Djibouti, countless Eritrean askaris met their agonizing end on Abyssinian soil. In a brutal display of retribution, Emperor Menelik of Ethiopia ordered captured Eritreans to be savagely mutilated by having their right hands and left legs amputated with axes and machetes, leaving behind a gruesome pile of severed body parts that rotted under the scorching sun. Eritreans’ cries for mercy carried across the abandoned fields, their blood marking the farmlands of Tigray, a stark reminder of the brutality they endured at the hands of the Abyssinian rulers. Many did not survive.",
+    image: "/Mutilated.jpg",
+    alt: "Historical Eritrean askaris",
+    width: 1600,
+    height: 980,
+  },
+  {
+    eyebrow: "Voice of a Nation",
+    title: "Woldeab Woldemariam and Ibrahim Sultan Ali",
+    variant: "witness",
+    copy: 'In one of his interviews, Woldeab Woldemariam emphasized that “90% of the credit for preserving Eritrea in one piece goes to Ibrahim Sultan Ali. His pivotal role in preserving Eritrea’s unity is a testament to his heroic patriotism, deserving the praise and gratitude of the entire Eritrean people." Woldeab Woldemariam also remarked, “I always said: ‘I am not a Christian, I am not a highlander. I am an Eritrean.’” Knowing how close Woldeab Woldemariam and Ibrahim Sultan were, I’m also sure that Ibrahim Sultan would have said, “I am not a Muslim, I am not a lowlander. I am an Eritrean.” These giants’ transcending patriotism knew no boundaries.',
+    image: "/Woldeab-Ibrahim.jpg",
+    alt: "Woldeab Ibrahim",
+    width: 1080,
+    height: 1350,
+  },
+  {
     eyebrow: "The Spark of Resistance",
     title: "Hamid Idris Awate",
     copy: "September 1, 1961, marked a turning point in the collective consciousness of Eritreans. It was a statement to the world that a people denied justice and silenced in every other forum would not quietly accept subjugation. With that first bullet, Hamid Idris Awate and his companions ignited a movement that inspired generations, sustained decades of sacrifice, and ultimately defined the nation’s commitment to freedom.",
@@ -190,61 +243,48 @@ export default function Home() {
           <ScrollPath />
 
           <section className={styles.chapterSection} id="narrative">
-            {chapters.map((chapter, index) => (
-              <article
-                key={chapter.title}
-                className={`${styles.chapterGrid} ${index % 2 === 1 ? styles.chapterGridReverse : ""}`}
-              >
-                <div className={styles.chapterCopy}>
-                  <p className={styles.eyebrow}>{chapter.eyebrow}</p>
-                  <h2 className={styles.sectionTitle}>{chapter.title}</h2>
-                  <p className={styles.bodyText}>{chapter.copy}</p>
-                </div>
+            {chapters.map((chapter, index) =>
+              chapter.variant === "witness" ? (
+                <section key={chapter.title} className={styles.witnessSection}>
+                  <div className={styles.witnessIntro}>
+                    <p className={styles.eyebrow}>{chapter.eyebrow}</p>
+                    <h2 className={styles.sectionTitle}>{chapter.title}</h2>
+                    <p className={styles.bodyText}>{chapter.copy}</p>
+                  </div>
 
-                <div className={styles.chapterImageFrame}>
-                  <Image
-                    className={styles.chapterImage}
-                    src={chapter.image}
-                    alt={chapter.alt}
-                    width={chapter.width}
-                    height={chapter.height}
-                  />
-                </div>
-              </article>
-            ))}
-          </section>
+                  <div className={styles.witnessImageWrap}>
+                    <Image
+                      className={styles.witnessImage}
+                      src={chapter.image}
+                      alt={chapter.alt}
+                      width={chapter.width}
+                      height={chapter.height}
+                    />
+                  </div>
+                </section>
+              ) : (
+                <article
+                  key={chapter.title}
+                  className={`${styles.chapterGrid} ${index % 2 === 1 ? styles.chapterGridReverse : ""}`}
+                >
+                  <div className={styles.chapterCopy}>
+                    <p className={styles.eyebrow}>{chapter.eyebrow}</p>
+                    <h2 className={styles.sectionTitle}>{chapter.title}</h2>
+                    <p className={styles.bodyText}>{chapter.copy}</p>
+                  </div>
 
-          <section className={styles.witnessSection}>
-            <div className={styles.witnessIntro}>
-              <p className={styles.eyebrow}>The Price of History</p>
-              <h2 className={styles.sectionTitle}>Bearing Witness</h2>
-              <p className={styles.bodyText}>
-                Amid the fierce Battle of Adwa, fought on March 1, 1896, there
-                was a stark contrast in the treatment of the prisoners. While
-                many Italian prisoners of war were humanely cared for by the
-                Ethiopians and eventually sent back to Eritrea through Djibouti,
-                countless Eritrean askaris met their agonizing end on Abyssinian
-                soil. In a brutal display of retribution, Emperor Menelik of
-                Ethiopia ordered captured Eritreans to be savagely mutilated by
-                having their right hands and left legs amputated with axes and
-                machetes, leaving behind a gruesome pile of severed body parts
-                that rotted under the scorching sun. Eritreans’ cries for mercy
-                carried across the abandoned fields, their blood marking the
-                farmlands of Tigray, a stark reminder of the brutality they
-                endured at the hands of the Abyssinian rulers. Many did not
-                survive.
-              </p>
-            </div>
-
-            <div className={styles.witnessImageWrap}>
-              <Image
-                className={styles.witnessImage}
-                src="/Mutilated.jpg"
-                alt="Historical Eritrean askaris"
-                width={1600}
-                height={980}
-              />
-            </div>
+                  <div className={styles.chapterImageFrame}>
+                    <Image
+                      className={styles.chapterImage}
+                      src={chapter.image}
+                      alt={chapter.alt}
+                      width={chapter.width}
+                      height={chapter.height}
+                    />
+                  </div>
+                </article>
+              ),
+            )}
           </section>
 
           <section className={styles.quoteSection}>
@@ -264,9 +304,7 @@ export default function Home() {
           <section className={styles.authorSection} id="author">
             <div className={styles.authorGrid}>
               <div className={styles.authorPortraitFrame}>
-                <div
-                  aria-hidden="true"
-                />
+                <div aria-hidden="true" />
                 <Image
                   className={styles.authorPortrait}
                   src="/Dawit.jpeg"
