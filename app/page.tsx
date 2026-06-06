@@ -6,6 +6,15 @@ import styles from "./page.module.css";
 
 const chapters = [
   {
+    eyebrow: "At the Center",
+    title: "Family",
+    copy: "Grace begins at home. Before it becomes history, before it becomes identity, before it becomes the story of a people, it originates in the places where a child is formed: in a mother’s sacrifice, a father’s wisdom, a grandmother’s blessing, a neighbor’s care, and a community’s watchful love. Before we understand the larger story of Eritrea, we first need to understand the people who raised us and the values they instilled in us. This is where that journey begins.",
+    image: "/Family.jpg",
+    alt: "Family portrait",
+    width: 1080,
+    height: 1350,
+  },
+  {
     eyebrow: "Memory Fragment",
     title: "Skull",
     variant: "witness",
@@ -26,15 +35,6 @@ const chapters = [
     ),
     image: "/Skull.jpg",
     alt: "Historical skull artifact",
-    width: 1080,
-    height: 1350,
-  },
-  {
-    eyebrow: "At the Center",
-    title: "Family",
-    copy: "Grace begins at home. Before it becomes history, before it becomes identity, before it becomes the story of a people, it originates in the places where a child is formed: in a mother’s sacrifice, a father’s wisdom, a grandmother’s blessing, a neighbor’s care, and a community’s watchful love. Before we understand the larger story of Eritrea, we first need to understand the people who raised us and the values they instilled in us. This is where that journey begins.",
-    image: "/Family.jpg",
-    alt: "Family portrait",
     width: 1080,
     height: 1350,
   },
