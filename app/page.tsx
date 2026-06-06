@@ -212,7 +212,7 @@ export default function Home() {
           <div className={styles.heroContent}>
             <h1 className={styles.heroTitle}>Roots of Grace</h1>
             <p className={styles.heroSubtitle}>
-              Family, Community and the Untold Story of Eritrea
+              Family, Community, and the Untold Story of Eritrea
             </p>
             <div
               className={`${styles.testimonials} ${styles.heroTestimonials}`}
