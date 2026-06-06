@@ -17,6 +17,27 @@ export default function SectionNav() {
   const navRef = useRef<HTMLElement | null>(null);
   const manualNavUntilRef = useRef(0);
 
+  const scrollToNavItem = (item: (typeof NAV_ITEMS)[number]) => {
+    const target = document.getElementById(item.hrefTarget);
+
+    if (!target) {
+      return;
+    }
+
+    const navHeight = navRef.current?.offsetHeight ?? 0;
+    const top =
+      target.getBoundingClientRect().top + window.scrollY - navHeight - 8;
+
+    window.scrollTo({
+      top: Math.max(0, top),
+      behavior: "smooth",
+    });
+
+    if (window.location.hash !== `#${item.hrefTarget}`) {
+      window.history.pushState(null, "", `#${item.hrefTarget}`);
+    }
+  };
+
   useEffect(() => {
     const sections = NAV_ITEMS.map((item) => ({
       id: item.id,
@@ -99,9 +120,11 @@ export default function SectionNav() {
                 key={item.id}
                 className={isActive ? styles.navLinkActive : styles.navLink}
                 href={`#${item.hrefTarget}`}
-                onClick={() => {
+                onClick={(event) => {
+                  event.preventDefault();
                   setActiveSection(item.id);
                   manualNavUntilRef.current = Date.now() + 900;
+                  scrollToNavItem(item);
                 }}
                 aria-current={isActive ? "location" : undefined}
               >
