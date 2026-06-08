@@ -16,7 +16,7 @@ const chapters = [
   },
   {
     eyebrow: "Memory Fragment",
-    title: "Skull",
+    title: "Eritrea: the cradle of humanity",
     variant: "witness",
     copy: (
       <>
